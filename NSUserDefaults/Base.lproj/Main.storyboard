@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,13 +13,82 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NSUserDefaults" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e26-Gz-RRg">
+                                <rect key="frame" x="5" y="320" width="113.5" height="30"/>
+                                <color key="backgroundColor" red="0.086474289070000002" green="1" blue="0.93766689729999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="登録"/>
+                                <connections>
+                                    <action selector="pushedInsertButton:" destination="BYZ-38-t0r" eventType="touchDown" id="glt-e6-dMK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yNr-Ko-8bO">
+                                <rect key="frame" x="128.5" y="320" width="113" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.038426391550000001" blue="0.2426216927" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="削除"/>
+                                <connections>
+                                    <action selector="pushedDeleteButton:" destination="BYZ-38-t0r" eventType="touchDown" id="hI0-Jy-ngq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGa-Mj-DnM">
+                                <rect key="frame" x="251.5" y="320" width="113.5" height="30"/>
+                                <color key="backgroundColor" red="0.088748914410000004" green="1" blue="0.075917509920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="表示"/>
+                                <connections>
+                                    <action selector="pushedDispButton:" destination="BYZ-38-t0r" eventType="touchDown" id="DlH-K0-LWv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gg1-Pp-d4b">
+                                <rect key="frame" x="19" y="155" width="337.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="保持されているデータ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xf-oW-EdZ">
+                                <rect key="frame" x="19" y="109" width="174" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xhd-ny-9IP">
+                                <rect key="frame" x="19" y="60" width="337.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="yNr-Ko-8bO" firstAttribute="height" secondItem="e26-Gz-RRg" secondAttribute="height" id="5Qy-5V-CgD"/>
+                            <constraint firstItem="RGa-Mj-DnM" firstAttribute="leading" secondItem="yNr-Ko-8bO" secondAttribute="trailing" constant="10" id="5iB-8C-6y5"/>
+                            <constraint firstItem="gg1-Pp-d4b" firstAttribute="top" secondItem="Xhd-ny-9IP" secondAttribute="bottom" constant="65" id="7gB-XF-Og1"/>
+                            <constraint firstItem="e26-Gz-RRg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="300" id="LFe-UX-2AO"/>
+                            <constraint firstItem="yNr-Ko-8bO" firstAttribute="centerY" secondItem="e26-Gz-RRg" secondAttribute="centerY" id="N27-9r-v3A"/>
+                            <constraint firstItem="e26-Gz-RRg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="NAF-QX-4Ux"/>
+                            <constraint firstItem="gg1-Pp-d4b" firstAttribute="width" secondItem="Xhd-ny-9IP" secondAttribute="width" id="OfW-CE-O7A"/>
+                            <constraint firstItem="yNr-Ko-8bO" firstAttribute="leading" secondItem="e26-Gz-RRg" secondAttribute="trailing" constant="10" id="Q3H-H5-abA"/>
+                            <constraint firstItem="yNr-Ko-8bO" firstAttribute="width" secondItem="e26-Gz-RRg" secondAttribute="width" id="QIV-98-6u7"/>
+                            <constraint firstItem="Xhd-ny-9IP" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="RFh-1N-xDs"/>
+                            <constraint firstItem="RGa-Mj-DnM" firstAttribute="height" secondItem="e26-Gz-RRg" secondAttribute="height" id="WdI-EN-h2k"/>
+                            <constraint firstItem="gg1-Pp-d4b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hJd-mP-w8f"/>
+                            <constraint firstItem="RGa-Mj-DnM" firstAttribute="width" secondItem="e26-Gz-RRg" secondAttribute="width" id="iYp-2c-WRV"/>
+                            <constraint firstItem="Xhd-ny-9IP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j5Z-U4-iv4"/>
+                            <constraint firstItem="gg1-Pp-d4b" firstAttribute="height" secondItem="Xhd-ny-9IP" secondAttribute="height" id="lCb-9j-HB9"/>
+                            <constraint firstItem="Xhd-ny-9IP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="t6y-cd-dSo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RGa-Mj-DnM" secondAttribute="trailing" constant="10" id="xNG-PX-HKC"/>
+                            <constraint firstItem="RGa-Mj-DnM" firstAttribute="centerY" secondItem="e26-Gz-RRg" secondAttribute="centerY" id="xwx-YJ-ktN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="dispLabel" destination="gg1-Pp-d4b" id="ZU3-hU-pJn"/>
+                        <outlet property="textField" destination="8bC-Xf-vdC" id="u0g-tW-h2A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

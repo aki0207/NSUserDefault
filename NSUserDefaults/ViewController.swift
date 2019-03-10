@@ -1,20 +1,46 @@
-//
-//  ViewController.swift
-//  NSUserDefaults
-//
-//  Created by 永見彰宏 on 2019/03/10.
-//  Copyright © 2019 永見彰宏. All rights reserved.
-//
 
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var inputed_text = ""
+    @IBOutlet var textField: UIView!
+    @IBOutlet weak var dispLabel: UILabel!
+    let userDefault = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
-
-
+    
+    @IBAction func pushedInsertButton(_ sender: Any) {
+     
+        // キーを指定してオブジェクトを保存
+        userDefault.set(true, forKey: "isPost")
+        userDefault.set("12345", forKey: "postId")
+        userDefault.synchronize()
+        print("保存しました")
+        
+    }
+    
+    
+    @IBAction func pushedDeleteButton(_ sender: Any) {
+        
+        userDefault.removeObject(forKey: "isPost")
+        userDefault.removeObject(forKey: "postId")
+        print("削除しました")
+        
+    }
+    
+    
+    @IBAction func pushedDispButton(_ sender: Any) {
+        
+        let isPost = userDefault.bool(forKey: "isPost")
+        let postId = userDefault.string(forKey: "postId")
+        print(postId)
+        
+    }
+    
+    
 }
 
