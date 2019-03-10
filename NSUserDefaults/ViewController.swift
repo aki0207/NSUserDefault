@@ -1,10 +1,9 @@
-
 import UIKit
 
 class ViewController: UIViewController {
     
     var inputed_text = ""
-    @IBOutlet var textField: UIView!
+    @IBOutlet var textField: UITextField!
     @IBOutlet weak var dispLabel: UILabel!
     let userDefault = UserDefaults.standard
     
@@ -14,10 +13,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pushedInsertButton(_ sender: Any) {
-     
+        
+        inputed_text = textField.text!
         // キーを指定してオブジェクトを保存
-        userDefault.set(true, forKey: "isPost")
-        userDefault.set("12345", forKey: "postId")
+        userDefault.set(inputed_text, forKey: "text")
         userDefault.synchronize()
         print("保存しました")
         
@@ -26,8 +25,7 @@ class ViewController: UIViewController {
     
     @IBAction func pushedDeleteButton(_ sender: Any) {
         
-        userDefault.removeObject(forKey: "isPost")
-        userDefault.removeObject(forKey: "postId")
+        userDefault.removeObject(forKey: "text")
         print("削除しました")
         
     }
@@ -35,9 +33,9 @@ class ViewController: UIViewController {
     
     @IBAction func pushedDispButton(_ sender: Any) {
         
-        let isPost = userDefault.bool(forKey: "isPost")
-        let postId = userDefault.string(forKey: "postId")
-        print(postId)
+        let saved_text = userDefault.string(forKey: "text")
+        dispLabel.text = saved_text
+        print(saved_text)
         
     }
     
